@@ -1,0 +1,18 @@
+# Dependencies and generated output
+node_modules/
+.next/
+out/
+coverage/
+playwright-report/
+test-results/
+
+# Local environment and machine files
+.env*
+!.env.example
+.DS_Store
+*.tsbuildinfo
+
+# Internal evidence, agent sessions, and generated task plans
+.tmp/
+task.md
+plans/content-checklist.md
