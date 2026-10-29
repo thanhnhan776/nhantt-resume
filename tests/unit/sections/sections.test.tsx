@@ -39,8 +39,8 @@ describe("portfolio sections", () => {
       screen.getByRole("link", { name: "View résumé PDF" }),
     ).toHaveAttribute("href", "/resume/Tran-Thanh-Nhan_Resume_VN_Remote.pdf")
     expect(
-      screen.getByRole("button", { name: "Go to Overview" }),
-    ).toBeInTheDocument()
+      screen.queryByRole("button", { name: "Go to Overview" }),
+    ).not.toBeInTheDocument()
   })
 
   test("renders employment in reverse chronology with historical labels and stable detail IDs", () => {

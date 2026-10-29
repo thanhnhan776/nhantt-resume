@@ -1,6 +1,3 @@
-import { QuickActionBar } from "@/components/portfolio/actions/QuickActionBar"
-import { ThemeToggle } from "@/components/theme/ThemeToggle"
-import { ACTIONS } from "@/lib/actions"
 import type { Profile } from "@/types"
 
 interface HeroProps {
@@ -15,41 +12,9 @@ export function Hero({ profile }: HeroProps) {
   return (
     <section
       aria-labelledby="hero-title"
-      className="scroll-mt-8 space-y-6 border-b border-border pb-12 sm:pb-16"
+      className="scroll-mt-24 space-y-7 pb-16 sm:pb-24"
       id="top"
     >
-      <nav aria-label="Page sections">
-        <ul className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
-          <li>
-            <a className="underline-offset-4 hover:underline" href="#summary">
-              Overview
-            </a>
-          </li>
-          <li>
-            <a
-              className="underline-offset-4 hover:underline"
-              href="#experience"
-            >
-              Experience
-            </a>
-          </li>
-          <li>
-            <a className="underline-offset-4 hover:underline" href="#projects">
-              Projects
-            </a>
-          </li>
-          <li>
-            <a className="underline-offset-4 hover:underline" href="#education">
-              Education
-            </a>
-          </li>
-          <li>
-            <a className="underline-offset-4 hover:underline" href="#contact">
-              Contact
-            </a>
-          </li>
-        </ul>
-      </nav>
       <div className="flex flex-wrap items-start justify-between gap-6">
         <div className="min-w-0 space-y-3">
           <p className="font-mono text-sm text-muted-foreground">
@@ -71,7 +36,6 @@ export function Hero({ profile }: HeroProps) {
             </p>
           ) : null}
         </div>
-        <ThemeToggle />
       </div>
       <div className="flex flex-wrap gap-x-5 gap-y-3">
         <a
@@ -99,7 +63,6 @@ export function Hero({ profile }: HeroProps) {
           </a>
         ) : null}
       </div>
-      <QuickActionBar actions={ACTIONS} />
     </section>
   )
 }

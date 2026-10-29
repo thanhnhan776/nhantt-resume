@@ -24,18 +24,15 @@ describe("ThemeToggle", () => {
     expect(group).toContainElement(darkButton)
     expect(darkButton).toHaveAttribute("aria-pressed", "true")
     expect(darkButton).toHaveClass("min-h-11", "min-w-11")
-    expect(screen.getByRole("button", { name: "System" })).toHaveAttribute(
-      "aria-pressed",
-      "false",
-    )
+    expect(screen.queryByRole("button", { name: "System" })).not.toBeInTheDocument()
   })
 
   test("persists a selected theme through next-themes", async () => {
     const user = userEvent.setup()
     render(<ThemeToggle />)
 
-    await user.click(screen.getByRole("button", { name: "System" }))
+    await user.click(screen.getByRole("button", { name: "Light" }))
 
-    expect(setTheme).toHaveBeenCalledWith("system")
+    expect(setTheme).toHaveBeenCalledWith("light")
   })
 })

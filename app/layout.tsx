@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import type { PropsWithChildren } from "react"
 import { ThemeProvider } from "@/components/providers/ThemeProvider"
+import { SiteNavigation } from "@/components/portfolio/sections/SiteNavigation"
 import { profile } from "@/data/profile"
 import { createPersonJsonLd, serializeJsonLd } from "@/lib/seo/person-json-ld"
 import { getSiteOrigin } from "@/lib/seo/site-origin"
@@ -63,11 +64,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
           <a className="skip-link" href="#main-content">
             Skip to main content
           </a>
-          <header className="site-header">
-            <a className="site-brand" href="#main-content">
-              Portfolio
-            </a>
-          </header>
+          <SiteNavigation name={profile.name} />
           {children}
         </ThemeProvider>
       </body>

@@ -13,7 +13,7 @@ export function Projects({ projects, techStack }: ProjectsProps) {
   return (
     <section
       aria-labelledby="projects-title"
-      className="scroll-mt-8 space-y-6"
+      className="scroll-mt-24 space-y-6"
       id="projects"
     >
       <header className="space-y-2">
@@ -26,7 +26,7 @@ export function Projects({ projects, techStack }: ProjectsProps) {
         </h2>
       </header>
       {personalProjects.length > 0 ? (
-        <ul className="grid gap-5 md:grid-cols-2">
+        <ul className="grid gap-10 md:grid-cols-2 md:gap-x-12">
           {personalProjects.map((project) => {
             const stackLabels = techStack
               .filter((item) => project.techStackIds.includes(item.id))
@@ -34,7 +34,7 @@ export function Projects({ projects, techStack }: ProjectsProps) {
 
             return (
               <li key={project.id}>
-                <article className="h-full rounded-xl border border-border bg-card p-5 text-card-foreground sm:p-6">
+                <article className="h-full border-l border-border/60 pl-5">
                   <h3 className="text-xl font-semibold leading-snug">
                     {project.title}
                   </h3>

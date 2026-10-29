@@ -13,7 +13,7 @@ export function ExperienceList({
   return (
     <section
       aria-labelledby="experience-title"
-      className="scroll-mt-8 space-y-6"
+      className="scroll-mt-24 space-y-6"
       id="experience"
     >
       <header className="space-y-2">
@@ -25,7 +25,7 @@ export function ExperienceList({
           Employment
         </h2>
       </header>
-      <div className="grid gap-5">
+      <div className="divide-y divide-border/50">
         {experiences.map((experience) => (
           <ExperienceCard
             key={experience.id}

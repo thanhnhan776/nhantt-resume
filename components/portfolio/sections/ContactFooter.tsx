@@ -10,7 +10,7 @@ export function ContactFooter({ profile }: ContactFooterProps) {
   )
 
   return (
-    <footer className="scroll-mt-8 border-t border-border pt-8" id="contact">
+    <footer className="scroll-mt-24 border-t border-border/50 pt-8" id="contact">
       <h2 className="text-2xl font-semibold tracking-tight" id="contact-title">
         Contact
       </h2>

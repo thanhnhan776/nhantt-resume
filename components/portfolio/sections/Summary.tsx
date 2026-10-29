@@ -8,7 +8,7 @@ export function Summary({ experiences }: SummaryProps) {
   return (
     <section
       aria-labelledby="summary-title"
-      className="scroll-mt-8 space-y-6"
+      className="scroll-mt-24 space-y-6"
       id="summary"
     >
       <header className="space-y-2">
@@ -20,11 +20,11 @@ export function Summary({ experiences }: SummaryProps) {
           Professional experience at a glance
         </h2>
       </header>
-      <ul className="grid gap-4 md:grid-cols-3">
+      <ul className="grid gap-8 md:grid-cols-3 md:gap-10">
         {experiences.map((experience) => (
           <li
             key={experience.id}
-            className="rounded-xl border border-border bg-card p-5 text-card-foreground"
+            className="border-l border-border pl-5"
           >
             <h3 className="font-semibold">{experience.employer}</h3>
             <p className="mt-2 text-muted-foreground">{experience.summary}</p>

@@ -13,7 +13,7 @@ export function Education({ education }: EducationProps) {
   return (
     <section
       aria-labelledby="education-title"
-      className="scroll-mt-8 space-y-6"
+      className="scroll-mt-24 space-y-6"
       id="education"
     >
       <header className="space-y-2">
@@ -26,10 +26,10 @@ export function Education({ education }: EducationProps) {
         </h2>
       </header>
       {education.length > 0 ? (
-        <ul className="grid gap-4">
+        <ul className="grid gap-8">
           {education.map((record) => (
             <li key={record.id}>
-              <article className="rounded-xl border border-border bg-card p-5 text-card-foreground sm:p-6">
+              <article className="border-l border-border/60 pl-5">
                 <h3 className="text-lg font-semibold">{record.school}</h3>
                 <p className="mt-1">{record.degree}</p>
                 <p className="mt-2 text-sm text-muted-foreground">

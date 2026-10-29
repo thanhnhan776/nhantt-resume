@@ -46,13 +46,13 @@ export function ExperienceCard({
     .slice(0, 3)
 
   return (
-    <article className="min-w-0 rounded-xl border border-border bg-card p-5 text-card-foreground shadow-sm sm:p-6">
+    <article className="min-w-0 py-8 first:pt-0">
       <header className="space-y-2">
         <h3 className="text-xl font-semibold leading-snug">
           {experience.employer}
         </h3>
         <p className="font-medium">{experience.role}</p>
-        <p className="text-sm text-muted-foreground">
+        <p className="font-mono text-sm text-muted-foreground">
           <time dateTime={experience.dates.start}>
             {formatMonth(experience.dates.start)}
           </time>
