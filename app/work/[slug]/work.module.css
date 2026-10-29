@@ -1,0 +1,247 @@
+.page {
+  width: min(100% - 2rem, 72rem);
+  margin-inline: auto;
+  padding-block: 2rem 6rem;
+  overflow-wrap: anywhere;
+}
+.link {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+.header {
+  display: grid;
+  gap: 2rem;
+  padding-block: clamp(2rem, 6vw, 5rem);
+}
+.eyebrow {
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+  font-weight: 650;
+}
+.header h1 {
+  max-width: 17ch;
+  margin-top: 1rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.8rem, 7vw, 6rem);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: 1.03;
+}
+.intro {
+  max-width: 58ch;
+  margin-top: 1.5rem;
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  line-height: 1.5;
+}
+.metadata {
+  display: grid;
+  align-content: end;
+  gap: 1rem;
+  font-size: 0.9rem;
+}
+.metadata dt {
+  color: var(--muted-foreground);
+  font-weight: 650;
+}
+.metadata dd {
+  margin-top: 0.15rem;
+}
+.visual {
+  display: flex;
+  min-width: 0;
+  min-height: 25rem;
+  flex-direction: column;
+  gap: 2rem;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  border-radius: 1.5rem;
+}
+.visual figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+.wardrobe {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+.wardrobeFlow {
+  display: grid;
+  width: min(100%, 40rem);
+  gap: 1rem;
+  margin: auto;
+}
+.stage,
+.branch > div {
+  position: relative;
+  padding: 0.8rem 1rem;
+  border-radius: 0.75rem;
+  background: var(--card);
+  color: var(--card-foreground);
+  text-align: center;
+  font-weight: 650;
+}
+.stage:not(:last-child)::after,
+.branch::after {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  height: 1rem;
+  border-left: 1px solid var(--accent-foreground);
+  content: "";
+}
+.branch {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+.branch > div {
+  border: 1px dashed currentColor;
+  background: transparent;
+  color: var(--accent-foreground);
+}
+.signing {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+.signingFlow {
+  display: grid;
+  flex: 1;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: center;
+}
+.round {
+  padding: 1rem 0.4rem;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+}
+.round small {
+  font-size: 0.75rem;
+}
+.lanes {
+  display: grid;
+  gap: 1rem;
+}
+.lanes span {
+  position: relative;
+  padding: 0.4rem;
+  border: 1px solid currentColor;
+  border-radius: 2rem;
+}
+.lanes span::before,
+.lanes span::after {
+  position: absolute;
+  top: 50%;
+  width: 0.5rem;
+  border-top: 1px solid currentColor;
+  content: "";
+}
+.lanes span::before {
+  right: 100%;
+}
+.lanes span::after {
+  left: 100%;
+}
+.affiliate {
+  background: var(--secondary);
+  color: var(--secondary-foreground);
+}
+.affiliateFlow {
+  display: grid;
+  flex: 1;
+  align-content: center;
+  justify-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+.providers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.providers span {
+  padding: 0.5rem 0.8rem;
+  border: 1px solid currentColor;
+  border-radius: 2rem;
+}
+.affiliateStage,
+.affiliateOutput {
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.75rem;
+  background: var(--card);
+  color: var(--card-foreground);
+  font-weight: 650;
+}
+.affiliateOutput {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+.story {
+  display: grid;
+  gap: clamp(3rem, 6vw, 5rem);
+  padding-block: clamp(4rem, 8vw, 7rem);
+}
+.storyRow {
+  display: grid;
+  gap: 1rem;
+}
+.storyRow h2,
+.more h2,
+.footer h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+.storyRow > div {
+  max-width: 65ch;
+}
+.storyRow h3 {
+  margin-top: 1.75rem;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.storyRow h3:first-child {
+  margin-top: 0;
+}
+.more,
+.footer {
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+.more ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 2rem;
+  margin-top: 1rem;
+}
+.footer {
+  margin-top: 4rem;
+}
+.footer > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.5rem;
+  margin-top: 1rem;
+}
+@media (min-width: 768px) {
+  .header {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    gap: 4rem;
+  }
+  .storyRow {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    gap: 4rem;
+  }
+}

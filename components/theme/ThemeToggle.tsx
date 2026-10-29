@@ -25,7 +25,15 @@ export function ThemeToggle() {
           onClick={() => setTheme(option.value)}
           title={option.label}
         >
-          {option.value === "light" ? <Sun aria-hidden="true" size={18} /> : <Moon aria-hidden="true" size={18} />}
+          {option.value === "system" ? (
+            <span aria-hidden="true" className="px-1 text-xs">
+              Auto
+            </span>
+          ) : option.value === "light" ? (
+            <Sun aria-hidden="true" size={18} />
+          ) : (
+            <Moon aria-hidden="true" size={18} />
+          )}
           <span className="sr-only">{option.label}</span>
         </button>
       ))}
