@@ -9,8 +9,16 @@ export const profile: Profile = {
   contact: {
     email: "thanhnhan.toantin@gmail.com",
     links: [
-      { kind: "linkedin", label: "LinkedIn", href: "https://www.linkedin.com/in/nhantt/" },
-      { kind: "website", label: "GitHub", href: "https://github.com/thanhnhan776/" },
+      {
+        kind: "linkedin",
+        label: "LinkedIn",
+        href: "https://www.linkedin.com/in/nhantt/",
+      },
+      {
+        kind: "website",
+        label: "GitHub",
+        href: "https://github.com/thanhnhan776/",
+      },
     ],
   },
 }
@@ -21,6 +29,9 @@ export const education: Education[] = [
     school: "FPT University",
     degree: "Bachelor of Software Engineering",
     dates: { start: "2016-09", end: "2019-12" },
-    honors: ["GPA: 8.3/10", "Excellent student for three consecutive semesters"],
+    honors: [
+      "GPA: 8.3/10",
+      "Excellent student for three consecutive semesters",
+    ],
   },
 ]

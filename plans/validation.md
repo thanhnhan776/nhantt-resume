@@ -21,16 +21,16 @@ On any failed check, stop immediately and report the failure and affected owner.
 
 ## Layered test matrix
 
-| Layer / owner | Required checks | Evidence / release gate |
-|---|---|---|
-| Data / A02 | All five D4 interfaces; duplicate IDs; invalid date ordering; dangling references; professional/personal distinction; absent contacts/assets; unapproved metric exclusion | Unit/typecheck output; publication allowlist review |
-| Foundation / A03 | Production build, typecheck, lint, test harness; semantic tokens; system/light/dark persistence; hydration | Logs plus cold-load recordings; no runtime warning |
-| Sections / A04 | Hero/actions visible; exact historical roles/dates; summaries accessible; no fake metrics; long Vietnamese text | Scoped tests and viewport screenshots |
-| Sheet / A05 | Focus trap/restoration; inert background; scroll lock/restoration; Escape; project changes; query selection; Back/Forward; invalid ID | Unit and manual interaction evidence |
-| Diagrams / A06 | Each renderer, lazy/loading/error/no-data states; keyboard equivalent; text alternatives; missing references rejected | Tests and both-theme graph captures |
-| Actions / A07 | Cmd/Ctrl+K; visible launch; typing contexts; copy success/failure; PDF availability; no nested modal; code text readable | Tests for coordinator contract and keyboard flow |
-| Integration / A08 | Server overview, correct client boundaries; shared action parity; no unresolved stubs/imports; static-prerender output | Production build report and page-source inspection |
-| End-to-end / A09 | Recruiter contact journey; interviewer deep dive; deep link and history; light/dark/reduced motion; mobile sheet; PDF navigation | Reproducible e2e traces and manual matrix |
+| Layer / owner     | Required checks                                                                                                                                                           | Evidence / release gate                             |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
+| Data / A02        | All five D4 interfaces; duplicate IDs; invalid date ordering; dangling references; professional/personal distinction; absent contacts/assets; unapproved metric exclusion | Unit/typecheck output; publication allowlist review |
+| Foundation / A03  | Production build, typecheck, lint, test harness; semantic tokens; system/light/dark persistence; hydration                                                                | Logs plus cold-load recordings; no runtime warning  |
+| Sections / A04    | Hero/actions visible; exact historical roles/dates; summaries accessible; no fake metrics; long Vietnamese text                                                           | Scoped tests and viewport screenshots               |
+| Sheet / A05       | Focus trap/restoration; inert background; scroll lock/restoration; Escape; project changes; query selection; Back/Forward; invalid ID                                     | Unit and manual interaction evidence                |
+| Diagrams / A06    | Each renderer, lazy/loading/error/no-data states; keyboard equivalent; text alternatives; missing references rejected                                                     | Tests and both-theme graph captures                 |
+| Actions / A07     | Cmd/Ctrl+K; visible launch; typing contexts; copy success/failure; PDF availability; no nested modal; code text readable                                                  | Tests for coordinator contract and keyboard flow    |
+| Integration / A08 | Server overview, correct client boundaries; shared action parity; no unresolved stubs/imports; static-prerender output                                                    | Production build report and page-source inspection  |
+| End-to-end / A09  | Recruiter contact journey; interviewer deep dive; deep link and history; light/dark/reduced motion; mobile sheet; PDF navigation                                          | Reproducible e2e traces and manual matrix           |
 
 Do not mock away the modal primitive in all tests: integration must exercise the actual focus/scroll implementation. Automated accessibility tests supplement, not replace, keyboard and screen-reader review.
 

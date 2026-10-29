@@ -30,13 +30,13 @@ URL proposal: `/?experience=<stable-id>#experience` is a shareable selection. In
 
 ## Shared interaction payloads
 
-| Contract | Serializable input | Behavior/owner |
-|---|---|---|
-| Shared ActionDescriptor | stable `id`; action kind `section | email | resume`; label; target/approved value; optional shortcut metadata | A07 owns descriptors/actions and palette; A04 consumes visible quick-action exports; no fake targets |
-| DiagramContainer | `TechnicalDiagram` record by approved public data, selected module ID optional | A06 owns renderer registry, SVG/text fallback and lazy graph. Selection detail remains in same sheet; no nested modal |
-| CodeView | approved snippet ID/content supplied as static safe data, accessible label/title, plain-text vs optional presentation toggle | A07 owns; do not execute snippets or include real secrets/config values |
-| ExperienceSheet | stable experience ID; selected project ID optional | A05 owns overlay, URL/history, focus, scroll and trigger restoration |
-| InteractionRoot | public experience registry/IDs and initial overlay state | A05 owns sole modal coordinator; A07 requests actions through the frozen public contract |
+| Contract                | Serializable input                                                                                                           | Behavior/owner                                                                                                        |
+| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| Shared ActionDescriptor | stable `id`; action kind `section                                                                                            | email                                                                                                                 | resume`; label; target/approved value; optional shortcut metadata | A07 owns descriptors/actions and palette; A04 consumes visible quick-action exports; no fake targets |
+| DiagramContainer        | `TechnicalDiagram` record by approved public data, selected module ID optional                                               | A06 owns renderer registry, SVG/text fallback and lazy graph. Selection detail remains in same sheet; no nested modal |
+| CodeView                | approved snippet ID/content supplied as static safe data, accessible label/title, plain-text vs optional presentation toggle | A07 owns; do not execute snippets or include real secrets/config values                                               |
+| ExperienceSheet         | stable experience ID; selected project ID optional                                                                           | A05 owns overlay, URL/history, focus, scroll and trigger restoration                                                  |
+| InteractionRoot         | public experience registry/IDs and initial overlay state                                                                     | A05 owns sole modal coordinator; A07 requests actions through the frozen public contract                              |
 
 Avoid passing component callbacks through serialized server component props where the framework boundary does not support it. A03 defines client-side exports/events in code; table above is the compatibility target, not a claim of a frozen implementation.
 

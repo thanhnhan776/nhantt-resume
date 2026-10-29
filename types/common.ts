@@ -9,7 +9,13 @@ export interface DateRange {
   end?: YearMonth
 }
 
-export type ApprovedLinkKind = "website" | "repository" | "demo" | "article" | "linkedin" | "email"
+export type ApprovedLinkKind =
+  | "website"
+  | "repository"
+  | "demo"
+  | "article"
+  | "linkedin"
+  | "email"
 
 export interface ApprovedLink {
   kind: ApprovedLinkKind
@@ -57,7 +63,12 @@ export interface Education {
 
 export type DiagramRendererKind = "text" | "nodes-edges" | "svg-asset"
 
-export type AchievementCategory = "scope" | "quality" | "delivery" | "reliability" | "impact"
+export type AchievementCategory =
+  | "scope"
+  | "quality"
+  | "delivery"
+  | "reliability"
+  | "impact"
 
 export interface AchievementMetric {
   value: number

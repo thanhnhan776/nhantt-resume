@@ -15,18 +15,18 @@ Status: proposed implementation; documentation approved 2026-10-28. No website e
 
 All paths below are **future** outputs, not permission to implement now. A01 freezes exact paths and export contracts before parallel assignments. `**` means descendants; no owner may expand its area without approval.
 
-| ID / assignment | Exclusive future ownership | Requires |
-|---|---|---|
-| A01 [Discovery](../prompts/01-discovery-and-stack.md) | `plans/decisions/**` | implementation approval |
-| A02 [Content and data](../prompts/02-content-and-data.md) | `types/**`, `data/**`, `public/resume/**`, `tests/unit/data/**` | A01 |
-| A03 [Foundation](../prompts/03-foundation-and-theme.md) | dependency/config files, lockfile, `app/globals.css`, `components/ui/**`, `components/providers/**`, `components/theme/**`, `lib/theme/**`, `tests/unit/theme/**`; initial `app/layout.tsx`, `app/page.tsx` | A02 |
-| A04 [Page sections](../prompts/04-page-sections.md) | `components/portfolio/sections/**`, `components/portfolio/cards/**`, `tests/unit/sections/**` | A03 |
-| A05 [Experience sheet](../prompts/05-experience-sheet.md) | `components/portfolio/experience/**`, `lib/overlay/**`, `tests/unit/experience/**` | A03 |
-| A06 [Diagrams](../prompts/06-diagrams-and-explorer.md) | `components/portfolio/diagrams/**`, `public/diagrams/**`, `tests/unit/diagrams/**` | A03 |
-| A07 [Commands and code](../prompts/07-command-and-code-view.md) | `components/portfolio/actions/**`, `components/portfolio/code/**`, `lib/actions/**`, `tests/unit/actions/**` | A03 |
-| A08 [Integration, SEO, performance](../prompts/08-seo-performance.md) | final `app/layout.tsx`, `app/page.tsx`, `app/robots.ts`, `app/sitemap.ts`, `public/og/**`, `lib/seo/**`, `tests/unit/seo/**` | A04, A05, A06, A07 |
-| A09 [Validation](../prompts/09-validation.md) | `tests/e2e/**`, `tests/accessibility/**`, `tests/performance/**`, `plans/release-evidence/**` | A08 |
-| A10 [Maintainer documentation](../prompts/10-maintainer-documentation.md) | future root `AGENTS.md`, root `README.md`, `docs/**` | A09 |
+| ID / assignment                                                           | Exclusive future ownership                                                                                                                                                                                  | Requires                |
+| ------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- |
+| A01 [Discovery](../prompts/01-discovery-and-stack.md)                     | `plans/decisions/**`                                                                                                                                                                                        | implementation approval |
+| A02 [Content and data](../prompts/02-content-and-data.md)                 | `types/**`, `data/**`, `public/resume/**`, `tests/unit/data/**`                                                                                                                                             | A01                     |
+| A03 [Foundation](../prompts/03-foundation-and-theme.md)                   | dependency/config files, lockfile, `app/globals.css`, `components/ui/**`, `components/providers/**`, `components/theme/**`, `lib/theme/**`, `tests/unit/theme/**`; initial `app/layout.tsx`, `app/page.tsx` | A02                     |
+| A04 [Page sections](../prompts/04-page-sections.md)                       | `components/portfolio/sections/**`, `components/portfolio/cards/**`, `tests/unit/sections/**`                                                                                                               | A03                     |
+| A05 [Experience sheet](../prompts/05-experience-sheet.md)                 | `components/portfolio/experience/**`, `lib/overlay/**`, `tests/unit/experience/**`                                                                                                                          | A03                     |
+| A06 [Diagrams](../prompts/06-diagrams-and-explorer.md)                    | `components/portfolio/diagrams/**`, `public/diagrams/**`, `tests/unit/diagrams/**`                                                                                                                          | A03                     |
+| A07 [Commands and code](../prompts/07-command-and-code-view.md)           | `components/portfolio/actions/**`, `components/portfolio/code/**`, `lib/actions/**`, `tests/unit/actions/**`                                                                                                | A03                     |
+| A08 [Integration, SEO, performance](../prompts/08-seo-performance.md)     | final `app/layout.tsx`, `app/page.tsx`, `app/robots.ts`, `app/sitemap.ts`, `public/og/**`, `lib/seo/**`, `tests/unit/seo/**`                                                                                | A04, A05, A06, A07      |
+| A09 [Validation](../prompts/09-validation.md)                             | `tests/e2e/**`, `tests/accessibility/**`, `tests/performance/**`, `plans/release-evidence/**`                                                                                                               | A08                     |
+| A10 [Maintainer documentation](../prompts/10-maintainer-documentation.md) | future root `AGENTS.md`, root `README.md`, `docs/**`                                                                                                                                                        | A09                     |
 
 Each assignment also owns only its numbered report, `plans/handoffs/01.md` through `10.md`. A03 owns all shared configuration, including test-runner configuration; A09 requests changes rather than editing it. `task.md`, this package and session context are otherwise read-only to implementation owners.
 
@@ -53,20 +53,20 @@ Example assignment: `Assign A06 with task.md, this package, A01 version decision
 
 IDs below label requirements from [task.md](../task.md), not invented implementation completion claims.
 
-| Requirement | Design / execution owner | Required evidence |
-|---|---|---|
-| D1 Information architecture and routes | architecture; A04, A08 | section hierarchy, anchors and direct-detail restoration |
-| D2 UX flow and component specs | ux-design; A03, A05, A06 | keyboard sheet, theme matrix, diagram fallback |
-| D3 Setup and folder structure | architecture; A01, A03 | version record, folder tree, successful baseline build |
-| D4 Five TypeScript interfaces | architecture; A02 | actual Experience, Project, Achievement, TechnicalDiagram, TechStack interfaces and contract tests |
-| D5 Key component implementation code | ux-design; A04, A05, A06, A08 | actual Hero, Theme Toggle, Quick Actions, Card, Sheet and DiagramContainer code, integrated and tested |
-| D6 Complete AGENTS template | AGENTS.template; A10 | activated, accurate root instructions and worked extension example |
-| D7 SEO and performance steps | validation; A08, A09 | metadata, Person JSON-LD, OG, static prerender/build and measured audit |
-| V1 Architecture Explorer | ux-design; A06 | node selection with equivalent text navigation |
-| V2 Impact-first badges | content-checklist; A02, A04 | approved evidence or no numeric badge; no illustrative metrics |
-| V3 Command palette | ux-design; A07 | Cmd/Ctrl+K, visible alternate actions, overlay coordination |
-| V4 Terminal/code toggle | ux-design; A07 | approved snippets, accessible visual toggle, no secrets |
-| V5 PDF action | content-checklist; A02, A04, A07 | approved static PDF in Hero and Navigation; generation optional later |
+| Requirement                            | Design / execution owner         | Required evidence                                                                                      |
+| -------------------------------------- | -------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| D1 Information architecture and routes | architecture; A04, A08           | section hierarchy, anchors and direct-detail restoration                                               |
+| D2 UX flow and component specs         | ux-design; A03, A05, A06         | keyboard sheet, theme matrix, diagram fallback                                                         |
+| D3 Setup and folder structure          | architecture; A01, A03           | version record, folder tree, successful baseline build                                                 |
+| D4 Five TypeScript interfaces          | architecture; A02                | actual Experience, Project, Achievement, TechnicalDiagram, TechStack interfaces and contract tests     |
+| D5 Key component implementation code   | ux-design; A04, A05, A06, A08    | actual Hero, Theme Toggle, Quick Actions, Card, Sheet and DiagramContainer code, integrated and tested |
+| D6 Complete AGENTS template            | AGENTS.template; A10             | activated, accurate root instructions and worked extension example                                     |
+| D7 SEO and performance steps           | validation; A08, A09             | metadata, Person JSON-LD, OG, static prerender/build and measured audit                                |
+| V1 Architecture Explorer               | ux-design; A06                   | node selection with equivalent text navigation                                                         |
+| V2 Impact-first badges                 | content-checklist; A02, A04      | approved evidence or no numeric badge; no illustrative metrics                                         |
+| V3 Command palette                     | ux-design; A07                   | Cmd/Ctrl+K, visible alternate actions, overlay coordination                                            |
+| V4 Terminal/code toggle                | ux-design; A07                   | approved snippets, accessible visual toggle, no secrets                                                |
+| V5 PDF action                          | content-checklist; A02, A04, A07 | approved static PDF in Hero and Navigation; generation optional later                                  |
 
 ## Decisions required before execution
 

@@ -1,0 +1,184 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  color-scheme: light;
+  --background: oklch(0.985 0.004 255);
+  --foreground: oklch(0.22 0.015 255);
+  --card: oklch(0.995 0.003 255);
+  --card-foreground: oklch(0.22 0.015 255);
+  --popover: oklch(0.995 0.003 255);
+  --popover-foreground: oklch(0.22 0.015 255);
+  --primary: oklch(0.5 0.12 50);
+  --primary-foreground: oklch(0.985 0.004 255);
+  --secondary: oklch(0.94 0.008 255);
+  --secondary-foreground: oklch(0.24 0.015 255);
+  --muted: oklch(0.94 0.008 255);
+  --muted-foreground: oklch(0.47 0.02 255);
+  --accent: oklch(0.93 0.025 60);
+  --accent-foreground: oklch(0.3 0.06 50);
+  --destructive: oklch(0.5 0.18 27);
+  --destructive-foreground: oklch(0.985 0.004 255);
+  --success: oklch(0.46 0.12 150);
+  --success-foreground: oklch(0.985 0.004 255);
+  --warning: oklch(0.47 0.12 70);
+  --warning-foreground: oklch(0.985 0.004 255);
+  --info: oklch(0.48 0.1 245);
+  --info-foreground: oklch(0.985 0.004 255);
+  --border: oklch(0.75 0.012 255);
+  --input: oklch(0.75 0.012 255);
+  --ring: oklch(0.5 0.12 50);
+  --radius: 0.625rem;
+  --spacing: 0.25rem;
+  --font-sans-family:
+    ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  --font-mono-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+  --text-body: 1rem;
+  --text-body--line-height: 1.65;
+  --text-meta: 0.875rem;
+  --text-meta--line-height: 1.5;
+  --motion-fast: 150ms;
+}
+
+.dark {
+  color-scheme: dark;
+  --background: oklch(0.17 0.015 255);
+  --foreground: oklch(0.94 0.008 255);
+  --card: oklch(0.22 0.015 255);
+  --card-foreground: oklch(0.94 0.008 255);
+  --popover: oklch(0.24 0.015 255);
+  --popover-foreground: oklch(0.94 0.008 255);
+  --primary: oklch(0.78 0.12 65);
+  --primary-foreground: oklch(0.2 0.02 255);
+  --secondary: oklch(0.28 0.015 255);
+  --secondary-foreground: oklch(0.92 0.008 255);
+  --muted: oklch(0.27 0.015 255);
+  --muted-foreground: oklch(0.78 0.02 255);
+  --accent: oklch(0.32 0.04 55);
+  --accent-foreground: oklch(0.96 0.008 255);
+  --destructive: oklch(0.72 0.14 27);
+  --destructive-foreground: oklch(0.2 0.02 255);
+  --success: oklch(0.76 0.12 150);
+  --success-foreground: oklch(0.2 0.02 255);
+  --warning: oklch(0.82 0.13 80);
+  --warning-foreground: oklch(0.2 0.02 255);
+  --info: oklch(0.8 0.09 245);
+  --info-foreground: oklch(0.2 0.02 255);
+  --border: oklch(0.72 0.015 255);
+  --input: oklch(0.72 0.015 255);
+  --ring: oklch(0.78 0.12 65);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --font-sans: var(--font-sans-family);
+  --font-mono: var(--font-mono-family);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans-family);
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+}
+
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: min(100% - 2rem, 72rem);
+  margin-inline: auto;
+  padding-block: 1rem;
+}
+
+.site-brand {
+  color: var(--foreground);
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.site-main {
+  width: min(100% - 2rem, 72rem);
+  min-height: 60vh;
+  margin-inline: auto;
+  padding-block: clamp(3rem, 10vw, 7rem);
+  overflow-wrap: anywhere;
+}
+
+.site-main h1 {
+  max-width: 18ch;
+  font-size: clamp(2rem, 8vw, 4.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+}
+
+.skip-link {
+  position: absolute;
+  z-index: 10;
+  top: 0.5rem;
+  left: 0.5rem;
+  padding: 0.75rem 1rem;
+  transform: translateY(-150%);
+  border-radius: var(--radius);
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.theme-option {
+  transition-property: color, background-color, border-color;
+  transition-duration: var(--motion-fast);
+  transition-timing-function: ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-fast: 0ms;
+  }
+}

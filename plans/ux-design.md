@@ -4,11 +4,11 @@ Status: proposed. [Architecture](architecture.md) defines contracts; [content re
 
 ## Viewer journey — D1, D2
 
-| Layer | Recruiter / interviewer goal | Visible content | Exit / next action |
-|---|---|---|---|
-| 1 Overview | Understand fit in 30 seconds | Name, chosen headline, UTC+7, strengths, dated company cards, approved impact/scope badges | Contact/PDF, open a company, jump to projects |
-| 2 Architecture/workflow | Understand the system and personal contribution | Sheet overview, selected project, simplified workflow/explorer, ownership boundary | Select node, read text steps, open technical details |
-| 3 Deep dive | Evaluate judgment | Shipped decisions, trade-offs, challenges, approved snippet and separately labeled retrospective improvements | Return to diagram/company without losing place |
+| Layer                   | Recruiter / interviewer goal                    | Visible content                                                                                               | Exit / next action                                   |
+| ----------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
+| 1 Overview              | Understand fit in 30 seconds                    | Name, chosen headline, UTC+7, strengths, dated company cards, approved impact/scope badges                    | Contact/PDF, open a company, jump to projects        |
+| 2 Architecture/workflow | Understand the system and personal contribution | Sheet overview, selected project, simplified workflow/explorer, ownership boundary                            | Select node, read text steps, open technical details |
+| 3 Deep dive             | Evaluate judgment                               | Shipped decisions, trade-offs, challenges, approved snippet and separately labeled retrospective improvements | Return to diagram/company without losing place       |
 
 Do not put every diagram or long technical narrative on the main page. Keep card summaries to a role/date line, 2–3 evidence-based bullets and a clear “Explore work” action. Unknown impact gets a qualitative outcome, not an invented number. Company projects are sheet stories; VCS Badminton Admin is the personal-project candidate.
 
@@ -61,13 +61,13 @@ With reduced motion: no draw-in paths, parallax, repeated pulses or spatial slid
 
 ## Five value-add specifications
 
-| ID | UI specification | Acceptance example |
-|---|---|---|
-| V1 Explorer | Module selection reveals approved stack/decisions without second modal | Keyboard node list yields same detail as graph click |
-| V2 Impact-first badges | Evidence-based outcome first; scope explicitly labeled | “5 affiliate providers” is scope, never an invented reliability percentage |
-| V3 Command palette | Visible launch control plus Cmd/Ctrl+K; searchable sections, email, PDF | Suppress shortcut in editable input contexts; clipboard failure offers selectable email; all actions also available visibly |
-| V4 Code view | Optional plain/code toggle inside story; semantic code block, horizontal overflow contained | Summary remains readable; approved illustrative reconstruction labeled as such; no actual secrets/config keys |
-| V5 PDF | Same approved static asset in Hero and Navigation | Descriptive “View résumé PDF”; hide unavailable action instead of shipping a broken link; generation is optional follow-up |
+| ID                     | UI specification                                                                            | Acceptance example                                                                                                          |
+| ---------------------- | ------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| V1 Explorer            | Module selection reveals approved stack/decisions without second modal                      | Keyboard node list yields same detail as graph click                                                                        |
+| V2 Impact-first badges | Evidence-based outcome first; scope explicitly labeled                                      | “5 affiliate providers” is scope, never an invented reliability percentage                                                  |
+| V3 Command palette     | Visible launch control plus Cmd/Ctrl+K; searchable sections, email, PDF                     | Suppress shortcut in editable input contexts; clipboard failure offers selectable email; all actions also available visibly |
+| V4 Code view           | Optional plain/code toggle inside story; semantic code block, horizontal overflow contained | Summary remains readable; approved illustrative reconstruction labeled as such; no actual secrets/config keys               |
+| V5 PDF                 | Same approved static asset in Hero and Navigation                                           | Descriptive “View résumé PDF”; hide unavailable action instead of shipping a broken link; generation is optional follow-up  |
 
 ## Accessibility review scenarios
 

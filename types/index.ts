@@ -15,5 +15,10 @@ export type {
 export type { Achievement } from "./achievement"
 export type { Experience } from "./experience"
 export type { Project, ProjectKind } from "./project"
-export type { DiagramEdge, DiagramNode, DiagramStep, TechnicalDiagram } from "./technical-diagram"
+export type {
+  DiagramEdge,
+  DiagramNode,
+  DiagramStep,
+  TechnicalDiagram,
+} from "./technical-diagram"
 export type { TechStack, TechStackCategory } from "./tech-stack"

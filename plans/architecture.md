@@ -4,13 +4,13 @@ Status: design only. Read [requirements](../task.md), [UX](ux-design.md) and [co
 
 ## Routes and information architecture — D1, D3
 
-| URL | Purpose | Rendering / behavior |
-|---|---|---|
-| `/` | Single canonical portfolio | Prerender approved overview content; interactive islands hydrate afterward |
-| `/#summary`, `/#experience`, `/#projects`, `/#education`, `/#contact` | Native section access | Real heading targets, scroll margin, keyboard navigation; work without palette |
-| `/?experience=<stable-id>#experience` | Share selected employment detail | Same canonical `/`; client reads allowlisted ID after hydration, opens sheet, invalid IDs are ignored |
-| `/resume/<approved-file>.pdf` | Optional approved static asset | Enable actions only when file and publication permission exist |
-| `/robots.txt`, `/sitemap.xml` | Discovery | Production domain only; preview environments must not be indexed |
+| URL                                                                   | Purpose                          | Rendering / behavior                                                                                  |
+| --------------------------------------------------------------------- | -------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `/`                                                                   | Single canonical portfolio       | Prerender approved overview content; interactive islands hydrate afterward                            |
+| `/#summary`, `/#experience`, `/#projects`, `/#education`, `/#contact` | Native section access            | Real heading targets, scroll margin, keyboard navigation; work without palette                        |
+| `/?experience=<stable-id>#experience`                                 | Share selected employment detail | Same canonical `/`; client reads allowlisted ID after hydration, opens sheet, invalid IDs are ignored |
+| `/resume/<approved-file>.pdf`                                         | Optional approved static asset   | Enable actions only when file and publication permission exist                                        |
+| `/robots.txt`, `/sitemap.xml`                                         | Discovery                        | Production domain only; preview environments must not be indexed                                      |
 
 Do not add per-employer routes or intercepted modal routes in v1: a single selected experience and browser URL state are sufficient. Keep overview HTML useful without JavaScript. Detail entry links expose a concise noninteractive summary as well as the enhancement trigger.
 
@@ -64,13 +64,13 @@ The full [ownership map](README.md) controls writes, including serialized route 
 
 These are field requirements, **not TypeScript implementation**. A02 must implement and export all five named interfaces, value unions and validation tests. Stable IDs are lowercase, URL-safe and never recycled; labels are not keys. Use plain serializable data and month-level dates (`YYYY-MM`) to avoid timezone shifts.
 
-| Contract | Required content and relationships | Validation / omission behavior |
-|---|---|---|
-| Experience | id, employer, historical role, location, start/end month, summary, achievement references, project references, stack references | end >= start; current only when owner confirms; references resolve; sort by actual dates |
-| Project | id, kind (professional/personal), optional experienceId, title, problem, ownership, shipped solution, trade-offs, optional retrospective improvements, diagram IDs, stack IDs, optional approved links/snippets | professional belongs to confirmed employer; no employer project in personal grid; missing demo means no button |
-| Achievement | id, statement, scope/outcome category, optional metric value/unit/baseline/time window, optional public evidence label | numeric impact needs owner-approved evidence; scope counts are not impact rates; no empty or fabricated badges |
-| TechnicalDiagram | id, projectId, title, renderer kind, alt summary, ordered text steps, nodes/edges or allowlisted SVG asset ID, node detail references | node/edge IDs unique; every edge endpoint and detail reference resolves; text alternative mandatory |
-| TechStack | id, label, category, optional approved public URL | deduplicate centrally; allowlist URL schemes; no implied proficiency score |
+| Contract         | Required content and relationships                                                                                                                                                                              | Validation / omission behavior                                                                                 |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| Experience       | id, employer, historical role, location, start/end month, summary, achievement references, project references, stack references                                                                                 | end >= start; current only when owner confirms; references resolve; sort by actual dates                       |
+| Project          | id, kind (professional/personal), optional experienceId, title, problem, ownership, shipped solution, trade-offs, optional retrospective improvements, diagram IDs, stack IDs, optional approved links/snippets | professional belongs to confirmed employer; no employer project in personal grid; missing demo means no button |
+| Achievement      | id, statement, scope/outcome category, optional metric value/unit/baseline/time window, optional public evidence label                                                                                          | numeric impact needs owner-approved evidence; scope counts are not impact rates; no empty or fabricated badges |
+| TechnicalDiagram | id, projectId, title, renderer kind, alt summary, ordered text steps, nodes/edges or allowlisted SVG asset ID, node detail references                                                                           | node/edge IDs unique; every edge endpoint and detail reference resolves; text alternative mandatory            |
+| TechStack        | id, label, category, optional approved public URL                                                                                                                                                               | deduplicate centrally; allowlist URL schemes; no implied proficiency score                                     |
 
 Related profile fields: display name, selected headline, location/timezone, experience claim with as-of context, approved contact links and optional resume asset. Education stores degree, school, start/end month and approved honors; certifications remain absent until evidence exists.
 
@@ -87,16 +87,16 @@ diagram: wardrobe-flow, text alternative required, simplified public reconstruct
 
 ## Server/client and state boundaries
 
-| Concern | Boundary | Reason |
-|---|---|---|
-| Overview, education, approved facts | Server-rendered | Searchable content and small initial bundle |
-| Metadata / Person JSON-LD | Server build | Canonical, stable and independent of theme |
-| Theme | Small client provider/control | System preference and persisted choice; match verified next-themes setup |
-| Selected experience and URL | Client InteractionRoot | Browser history without request-time data; read after hydration |
-| Sheet / palette | Client coordinator | One modal owner, focus and scroll restoration |
-| Explorer | Lazy client child | Avoid loading @xyflow/react on first page view |
-| Simple diagrams | Static SVG + text | Cheaper than a graph engine for linear workflows |
-| Code view | Client toggle + static approved snippet | No execution, remote fetch or syntax-highlighter bundle by default |
+| Concern                             | Boundary                                | Reason                                                                   |
+| ----------------------------------- | --------------------------------------- | ------------------------------------------------------------------------ |
+| Overview, education, approved facts | Server-rendered                         | Searchable content and small initial bundle                              |
+| Metadata / Person JSON-LD           | Server build                            | Canonical, stable and independent of theme                               |
+| Theme                               | Small client provider/control           | System preference and persisted choice; match verified next-themes setup |
+| Selected experience and URL         | Client InteractionRoot                  | Browser history without request-time data; read after hydration          |
+| Sheet / palette                     | Client coordinator                      | One modal owner, focus and scroll restoration                            |
+| Explorer                            | Lazy client child                       | Avoid loading @xyflow/react on first page view                           |
+| Simple diagrams                     | Static SVG + text                       | Cheaper than a graph engine for linear workflows                         |
+| Code view                           | Client toggle + static approved snippet | No execution, remote fetch or syntax-highlighter bundle by default       |
 
 A03 freezes event names and exports: experience trigger dispatches a stable public ID; sheet consumes the same registry; QuickActionBar and palette share allowlisted action descriptors; DiagramContainer accepts a diagram record; CodeView accepts an approved snippet plus accessible label. A05 owns overlay transitions; A07 consumes its contract without rewriting it. A08 wires all exports together after B1.
 

@@ -19,15 +19,15 @@ Static-export limitations documented by [Next.js](https://nextjs.org/docs/app/gu
 
 **Alternative if server runtime becomes necessary:** Cloudflare Workers can host a Next-compatible runtime through Cloudflare's adapter ecosystem. As of the documentation reviewed, Cloudflare recommends beta `vinext` for new Next applications and documents OpenNext primarily for existing apps with compatibility gaps. This adds adapter compatibility work and is not selected for this static portfolio. Re-evaluate using current official docs if runtime rendering/server APIs become necessary.
 
-| Decision | Proposal | State |
-|---|---|---|
-| App routing | Next.js App Router, single canonical `/` | Proposed |
-| Rendering | Next.js App Router static export on Cloudflare Pages | **Approved** |
-| Build output | `pnpm exec next build` -> `out/` | **Approved proposal; verify in A03/A08** |
-| Cloudflare project URL | Actual generated `<project>.pages.dev` after project creation | Later; do not guess now |
-| Custom domain/canonical | Set after owner provisions a domain; use the real deployed URL at metadata build | Deferred; no invented placeholder |
-| OG | Prebuilt static image; metadata base URL configured from actual deployed URL | **Approved** |
-| Package manager | pnpm | **Approved**; pnpm is available locally |
+| Decision                | Proposal                                                                         | State                                    |
+| ----------------------- | -------------------------------------------------------------------------------- | ---------------------------------------- |
+| App routing             | Next.js App Router, single canonical `/`                                         | Proposed                                 |
+| Rendering               | Next.js App Router static export on Cloudflare Pages                             | **Approved**                             |
+| Build output            | `pnpm exec next build` -> `out/`                                                 | **Approved proposal; verify in A03/A08** |
+| Cloudflare project URL  | Actual generated `<project>.pages.dev` after project creation                    | Later; do not guess now                  |
+| Custom domain/canonical | Set after owner provisions a domain; use the real deployed URL at metadata build | Deferred; no invented placeholder        |
+| OG                      | Prebuilt static image; metadata base URL configured from actual deployed URL     | **Approved**                             |
+| Package manager         | pnpm                                                                             | **Approved**; pnpm is available locally  |
 
 ## Content boundary relevant to rendering
 
