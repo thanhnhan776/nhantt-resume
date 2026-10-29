@@ -5,17 +5,16 @@ interface SiteNavigationProps {
 }
 
 const sections = [
-  { label: "Overview", href: "#summary" },
-  { label: "Experience", href: "#experience" },
-  { label: "Projects", href: "#projects" },
-  { label: "Education", href: "#education" },
-  { label: "Contact", href: "#contact" },
+  { label: "Work", href: "/#work" },
+  { label: "Experience", href: "/#experience" },
+  { label: "Contact", href: "/#contact" },
+  { label: "Résumé", href: "/resume/Tran-Thanh-Nhan_Resume_VN_Remote.pdf" },
 ] as const
 
 export function SiteNavigation({ name }: SiteNavigationProps) {
   return (
     <header className="site-header">
-      <a className="site-brand" href="#top" aria-label={`${name} — home`}>
+      <a className="site-brand" href="/" aria-label={`${name} — home`}>
         {name}
       </a>
       <nav aria-label="Page sections" className="site-nav">
