@@ -121,7 +121,10 @@ describe("DiagramContainer", () => {
         },
       ],
     }
-    render(<DiagramContainer diagram={graph} />)
+    const { container } = render(<DiagramContainer diagram={graph} />)
+    expect(container.querySelector(".diagram-container")).not.toHaveStyle({
+      aspectRatio: "16 / 9",
+    })
     expect(
       screen.getByRole("list", { name: "Workflow connections" }),
     ).toHaveTextContent("Process files to Select files (skip optional step)")

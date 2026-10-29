@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title description">
+  <title id="title">Trần Thành Nhân — Senior Full-Stack Engineer</title>
+  <desc id="description">Portfolio of a Senior Full-Stack Engineer based in Ho Chi Minh City, Vietnam.</desc>
+  <rect width="1200" height="630" fill="#10151d" />
+  <path d="M80 92h1040v4H80z" fill="#6dd6c3" />
+  <text x="80" y="250" fill="#f5f7fa" font-family="Arial, sans-serif" font-size="58" font-weight="700">Trần Thành Nhân</text>
+  <text x="80" y="330" fill="#c5ced9" font-family="Arial, sans-serif" font-size="38">Senior Full-Stack Engineer</text>
+  <text x="80" y="405" fill="#93a2b5" font-family="Arial, sans-serif" font-size="26">Ho Chi Minh City, Vietnam</text>
+  <text x="80" y="555" fill="#6dd6c3" font-family="monospace" font-size="20">PORTFOLIO</text>
+</svg>

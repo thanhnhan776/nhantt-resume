@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "lhci": "lhci autorun",
     "lint": "biome lint .",
     "format:check": "biome format .",
     "typecheck": "tsc --noEmit",
@@ -30,6 +31,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.6.3",
+    "@lhci/cli": "^0.15.1",
     "@playwright/test": "1.64.1",
     "@tailwindcss/postcss": "4.3.3",
     "@testing-library/dom": "10.4.2",

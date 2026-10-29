@@ -1,6 +1,13 @@
 "use client"
 
-import { useCallback, useEffect, useMemo, useReducer, useRef } from "react"
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useReducer,
+  useRef,
+} from "react"
 import { achievements as publicAchievements } from "@/data/achievements"
 import { projects as publicProjects } from "@/data/projects"
 import { techStack as publicTechStack } from "@/data/tech-stack"
@@ -141,7 +148,7 @@ export function InteractionRoot({
     dispatch({ type: "close-command" })
   }, [])
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const onExperienceSelect = (event: Event) => {
       const id = (event as CustomEvent<{ experienceId?: string }>).detail
         ?.experienceId

@@ -120,6 +120,37 @@ describe("InteractionRoot", () => {
     expect(trigger).toHaveFocus()
   })
 
+  it("focuses the sheet title when its ID differs from the overview heading", async () => {
+    const user = userEvent.setup()
+    render(
+      <InteractionRoot {...props}>
+        <main>
+          <h2 id="experience-title">Employment</h2>
+          <button
+            type="button"
+            onClick={() =>
+              window.dispatchEvent(
+                new CustomEvent("portfolio:experience-select", {
+                  detail: { experienceId: experience.id },
+                }),
+              )
+            }
+          >
+            Open experience
+          </button>
+        </main>
+      </InteractionRoot>,
+    )
+
+    await user.click(screen.getByRole("button", { name: "Open experience" }))
+    const title = await screen.findByRole("heading", {
+      name: experience.employer,
+    })
+
+    await waitFor(() => expect(title).toHaveFocus())
+    expect(title).toHaveAttribute("id", "experience-sheet-title")
+  })
+
   it("opens direct links after hydration and preserves unrelated URL data", async () => {
     window.history.replaceState(
       {},

@@ -95,7 +95,7 @@ export function ExperienceSheet({
         showCloseButton
         onOpenAutoFocus={(event) => {
           event.preventDefault()
-          document.getElementById("experience-title")?.focus()
+          document.getElementById("experience-sheet-title")?.focus()
         }}
         onCloseAutoFocus={(event) => event.preventDefault()}
         className="inset-y-0 right-0 h-dvh w-full max-w-none gap-0 overflow-hidden border-l bg-background p-0 sm:w-[min(64rem,85vw)] sm:max-w-none"
@@ -103,7 +103,7 @@ export function ExperienceSheet({
         <div className="flex min-h-0 flex-1 flex-col pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]">
           <SheetHeader className="shrink-0 border-b px-6 py-5 pr-16">
             <SheetTitle
-              id="experience-title"
+              id="experience-sheet-title"
               tabIndex={-1}
               className="text-xl font-semibold"
             >

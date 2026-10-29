@@ -15,7 +15,7 @@ test("cold-loads with the system color scheme and no hydration errors", async ({
   await page.goto("/")
   await expect(page.locator("html")).toHaveClass(/dark/)
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(
-    "Senior Full-Stack Engineer",
+    "Trần Thành Nhân",
   )
   await expect(page.getByRole("button", { name: "System" })).toHaveAttribute(
     "aria-pressed",
@@ -70,12 +70,14 @@ test("keeps the shell usable at 320px with reduced motion and keyboard focus", a
     page.getByRole("link", { name: "Skip to main content" }),
   ).toBeFocused()
 
-  const dimensions = await page.getByRole("button").evaluateAll((buttons) =>
-    buttons.map((button) => {
-      const rect = button.getBoundingClientRect()
-      return { width: rect.width, height: rect.height }
-    }),
-  )
+  const dimensions = await page
+    .locator(".theme-option")
+    .evaluateAll((buttons) =>
+      buttons.map((button) => {
+        const rect = button.getBoundingClientRect()
+        return { width: rect.width, height: rect.height }
+      }),
+    )
   expect(dimensions.length).toBe(3)
   expect(
     dimensions.every(({ width, height }) => width >= 44 && height >= 44),

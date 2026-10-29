@@ -27,6 +27,11 @@ const layoutStyle: CSSProperties = {
   width: "100%",
 }
 
+const explorerLayoutStyle: CSSProperties = {
+  minHeight: "12rem",
+  width: "100%",
+}
+
 const APPROVED_STATE_COPY = {
   loading: "Diagram loading.",
   error: "Diagram unavailable.",
@@ -57,7 +62,10 @@ export function DiagramContainer({
     !validation.valid
 
   return (
-    <div className="diagram-container" style={layoutStyle}>
+    <div
+      className="diagram-container"
+      style={renderer === "explorer" ? explorerLayoutStyle : layoutStyle}
+    >
       {unavailable ? (
         <>
           <p role="status">
