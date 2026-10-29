@@ -1,10 +1,14 @@
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
+import {
+  AffiliateTrackingDiagram,
+  MediaSigningDiagram,
+  WardrobeWorkflowDiagram,
+} from "@/components/portfolio/diagrams/StaticWorkflowDiagrams"
 import { achievements } from "@/data/achievements"
 import { experiences } from "@/data/experiences"
 import { profile } from "@/data/profile"
 import { techStack } from "@/data/tech-stack"
-import { technicalDiagrams } from "@/data/technical-diagrams"
 import { getSiteOrigin } from "@/lib/seo/site-origin"
 import { professionalProjects, workHref, workSlug } from "@/lib/work"
 import styles from "./work.module.css"
@@ -32,94 +36,9 @@ export async function generateMetadata({
 }
 
 function ProjectVisual({ id }: { id: string }) {
-  const diagram = technicalDiagrams.find((item) => item.projectId === id)
-  if (id === "wardrobe-workflow" && diagram) {
-    return (
-      <figure className={`${styles.visual} ${styles.wardrobe}`}>
-        <figcaption>
-          <strong>{diagram.title}</strong>
-          <span>Workflow schematic</span>
-        </figcaption>
-        <div className={styles.wardrobeFlow} aria-hidden="true">
-          {diagram.steps.slice(0, 3).map((step) => (
-            <div className={styles.stage} key={step.id}>
-              {step.label}
-            </div>
-          ))}
-          <div className={styles.branch}>
-            <div>Optional beautification</div>
-            <div>Skip beautification</div>
-          </div>
-          {diagram.steps.slice(4).map((step) => (
-            <div className={styles.stage} key={step.id}>
-              {step.label}
-            </div>
-          ))}
-        </div>
-        <p className="sr-only">
-          {diagram.altSummary} After background removal, either the optional
-          beautification or skip path continues to selection.
-        </p>
-      </figure>
-    )
-  }
-  if (id === "media-signing") {
-    return (
-      <figure className={`${styles.visual} ${styles.signing}`}>
-        <figcaption>
-          <strong>Media URL signing</strong>
-          <span>Workflow schematic</span>
-        </figcaption>
-        <div className={styles.signingFlow} aria-hidden="true">
-          <div className={styles.round}>S3 paths</div>
-          <div className={styles.lanes}>
-            <span>Sign</span>
-            <span>Sign</span>
-            <span>Sign</span>
-          </div>
-          <div className={styles.round}>
-            Signed URLs
-            <br />
-            <small>Merged into response</small>
-          </div>
-        </div>
-        <p className="sr-only">
-          S3 paths are signed in parallel by a Go service, then signed URLs are
-          merged into the response.
-        </p>
-      </figure>
-    )
-  }
-  if (id === "affiliate-phase-two") {
-    return (
-      <figure className={`${styles.visual} ${styles.affiliate}`}>
-        <figcaption>
-          <strong>Conversion tracking</strong>
-          <span>Workflow schematic</span>
-        </figcaption>
-        <div className={styles.affiliateFlow} aria-hidden="true">
-          <div className={styles.providers}>
-            <span>Rakuten</span>
-            <span>Impact</span>
-            <span>CJ</span>
-            <span>Awin</span>
-            <span>Skimlink</span>
-          </div>
-          <div>Webhooks or five-minute polling ↓</div>
-          <div className={styles.affiliateStage}>
-            Normalize transaction records
-          </div>
-          <div>↓</div>
-          <div className={styles.affiliateOutput}>Internal analytics</div>
-        </div>
-        <p className="sr-only">
-          Conversions from Rakuten, Impact, CJ, Awin and Skimlink arrive through
-          webhooks or five-minute polling, are normalized into transaction
-          records and made available for internal analytics.
-        </p>
-      </figure>
-    )
-  }
+  if (id === "wardrobe-workflow") return <WardrobeWorkflowDiagram />
+  if (id === "media-signing") return <MediaSigningDiagram />
+  if (id === "affiliate-phase-two") return <AffiliateTrackingDiagram />
   return null
 }
 

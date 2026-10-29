@@ -1,0 +1,61 @@
+.figure {
+  min-width: 0;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  background: var(--card);
+  color: var(--card-foreground);
+}
+
+.figure figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.figure figcaption span {
+  color: var(--muted-foreground);
+}
+
+.diagram {
+  display: block;
+  width: 100%;
+  max-width: 26rem;
+  height: auto;
+  margin: 1.5rem auto 0;
+  overflow: visible;
+  font-family: var(--font-sans-family);
+}
+
+.lines,
+.output {
+  fill: none;
+  stroke: var(--muted-foreground);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.nodes {
+  fill: var(--background);
+  stroke: var(--border);
+  stroke-width: 1.5;
+}
+
+.boundary {
+  fill: none;
+  stroke: var(--muted-foreground);
+  stroke-width: 1;
+  stroke-dasharray: 4 3;
+}
+
+.labels {
+  fill: var(--foreground);
+  font-size: 13px;
+  text-anchor: middle;
+}
+
+.annotation {
+  fill: var(--muted-foreground);
+  font-size: 11px;
+}

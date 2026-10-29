@@ -1,10 +1,14 @@
 import { Education } from "@/components/portfolio/sections/Education"
 import { LegacyExperienceLink } from "@/components/portfolio/experience/LegacyExperienceLink"
+import {
+  AffiliateTrackingDiagram,
+  MediaSigningDiagram,
+  WardrobeWorkflowDiagram,
+} from "@/components/portfolio/diagrams/StaticWorkflowDiagrams"
 import { experiences } from "@/data/experiences"
 import { education, profile } from "@/data/profile"
 import { projects } from "@/data/projects"
 import { techStack } from "@/data/tech-stack"
-import { technicalDiagrams } from "@/data/technical-diagrams"
 import { professionalProjects, workHref } from "@/lib/work"
 import type { Project } from "@/types"
 
@@ -58,7 +62,7 @@ function Hero() {
       </div>
       <a
         className="hero-work"
-        href="#work"
+        href={workHref("wardrobe-workflow")}
         aria-label="Explore the wardrobe processing project"
       >
         <span className="hero-work-label">
@@ -66,7 +70,9 @@ function Hero() {
         </span>
         <span className="hero-work-visual" aria-hidden="true">
           <span>Upload</span>
+          <span className="hero-work-arrow">→</span>
           <span>Processing</span>
+          <span className="hero-work-arrow">→</span>
           <span>Wardrobe</span>
         </span>
         <span className="hero-work-caption">
@@ -78,10 +84,7 @@ function Hero() {
 }
 
 function WorkPreview({ project }: { project: Project }) {
-  const diagram = technicalDiagrams.find(
-    (item) => item.projectId === project.id,
-  )
-  if (project.id === "wardrobe-workflow" && diagram) {
+  if (project.id === "wardrobe-workflow") {
     return (
       <article className="work-preview work-feature wardrobe-feature">
         <div className="work-copy">
@@ -100,58 +103,16 @@ function WorkPreview({ project }: { project: Project }) {
             Read case study <span aria-hidden="true">↗</span>
           </a>
         </div>
-        <figure className="wardrobe-flow">
-          <figcaption>
-            <span>Wardrobe processing</span>
-            <span>Workflow overview</span>
-          </figcaption>
-          <div className="wardrobe-stages" aria-hidden="true">
-            <div className="wardrobe-stage">
-              <span>01</span>
-              <strong>Upload</strong>
-            </div>
-            <div className="wardrobe-stage">
-              <span>02</span>
-              <strong>Detection &amp; metadata</strong>
-            </div>
-            <div className="wardrobe-stage">
-              <span>03</span>
-              <strong>Background removal</strong>
-            </div>
-            <div className="wardrobe-branch">
-              <div>
-                <span>Optional path</span>
-                <strong>Beautification</strong>
-              </div>
-              <div>
-                <span>Or</span>
-                <strong>Skip</strong>
-              </div>
-            </div>
-            <div className="wardrobe-stage">
-              <span>04</span>
-              <strong>Selection</strong>
-            </div>
-            <div className="wardrobe-stage wardrobe-stage-final">
-              <span>05</span>
-              <strong>Final wardrobe creation</strong>
-            </div>
-          </div>
-          <p className="sr-only">
-            {diagram.altSummary} After background removal, beautification is
-            optional; either path continues to selection and final wardrobe
-            creation.
-          </p>
-        </figure>
+        <WardrobeWorkflowDiagram />
       </article>
     )
   }
   return (
     <article className={`work-preview work-story work-story-${project.id}`}>
       {project.id === "media-signing" ? (
-        <MediaSigningIllustration />
+        <MediaSigningDiagram />
       ) : (
-        <AffiliateIllustration />
+        <AffiliateTrackingDiagram />
       )}
       <div className="work-copy">
         <p className="editorial-kicker">NetVirta · Engineering work</p>
@@ -171,67 +132,6 @@ function WorkPreview({ project }: { project: Project }) {
         </a>
       </div>
     </article>
-  )
-}
-
-function MediaSigningIllustration() {
-  return (
-    <figure className="story-visual signing-visual">
-      <figcaption>
-        Media signing <span>Workflow schematic</span>
-      </figcaption>
-      <div className="signing-flow" aria-hidden="true">
-        <div className="signing-source">S3 paths</div>
-        <div className="signing-lanes">
-          <span>Sign</span>
-          <span>Sign</span>
-          <span>Sign</span>
-        </div>
-        <div className="signing-result">
-          Signed URLs
-          <br />
-          <small>merged into response</small>
-        </div>
-      </div>
-      <p className="sr-only">
-        S3 paths are signed in parallel by a Go service, then signed URLs are
-        merged into the response.
-      </p>
-    </figure>
-  )
-}
-
-function AffiliateIllustration() {
-  return (
-    <figure className="story-visual affiliate-visual">
-      <figcaption>
-        Conversion tracking <span>Workflow schematic</span>
-      </figcaption>
-      <div className="affiliate-flow" aria-hidden="true">
-        <div className="affiliate-providers">
-          <span>Rakuten</span>
-          <span>Impact</span>
-          <span>CJ</span>
-          <span>Awin</span>
-          <span>Skimlink</span>
-        </div>
-        <div className="affiliate-connector">
-          Webhooks or polling <span>↓</span>
-        </div>
-        <div className="affiliate-stage">Normalize transactions</div>
-        <div className="affiliate-connector">
-          <span>↓</span>
-        </div>
-        <div className="affiliate-stage affiliate-output">
-          Internal analytics
-        </div>
-      </div>
-      <p className="sr-only">
-        Conversions from Rakuten, Impact, CJ, Awin and Skimlink arrive through
-        webhooks or polling, are normalized into transaction records and made
-        available for internal analytics.
-      </p>
-    </figure>
   )
 }
 
@@ -360,17 +260,6 @@ function PersonalProjects() {
               </p>
               <Technologies project={project} />
             </div>
-            <figure className="personal-visual">
-              <figcaption>Workflow schematic</figcaption>
-              <ol>
-                {(project.id === "vcs-badminton-admin"
-                  ? ["Registration setup", "Submissions", "Registration report"]
-                  : ["Job content management", "Business landing page"]
-                ).map((stage) => (
-                  <li key={stage}>{stage}</li>
-                ))}
-              </ol>
-            </figure>
           </article>
         ))}
       </div>
