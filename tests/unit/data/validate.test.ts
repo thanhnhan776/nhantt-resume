@@ -3,6 +3,7 @@ import { achievements } from "../../../data/achievements"
 import { experiences } from "../../../data/experiences"
 import { profile } from "../../../data/profile"
 import { projects } from "../../../data/projects"
+import { technicalDiagrams } from "../../../data/technical-diagrams"
 import { techStack } from "../../../data/tech-stack"
 import {
   validateContent,
@@ -23,6 +24,7 @@ const validRecords = () => ({
   projects: structuredClone(projects),
   achievements: structuredClone(achievements),
   techStack: structuredClone(techStack),
+  diagrams: structuredClone(technicalDiagrams),
 })
 
 const minimalExperience = (
@@ -74,6 +76,26 @@ describe("public content validation", () => {
 
     // Assert
     expect(issues).toEqual([])
+  })
+
+  test("links the approved wardrobe workflow to its public diagram record", () => {
+    const wardrobeProject = projects.find(
+      (project) => project.id === "wardrobe-workflow",
+    )
+    const diagram = technicalDiagrams.find(
+      (record) => record.id === "wardrobe-processing-flow",
+    )
+
+    expect(wardrobeProject?.technicalDiagramIds).toContain(diagram?.id)
+    expect(diagram?.projectId).toBe(wardrobeProject?.id)
+    expect(diagram?.steps.map((step) => step.label)).toEqual([
+      "Upload",
+      "Detection and metadata",
+      "Background removal",
+      "Optional beautification",
+      "Selection",
+      "Final wardrobe creation",
+    ])
   })
 
   test("accepts a profile without optional links or resume and a project without optional details", () => {

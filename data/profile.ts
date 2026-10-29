@@ -21,6 +21,10 @@ export const profile: Profile = {
       },
     ],
   },
+  resume: {
+    href: "/resume/Tran-Thanh-Nhan_Resume_VN_Remote.pdf",
+    label: "View résumé PDF",
+  },
 }
 
 export const education: Education[] = [

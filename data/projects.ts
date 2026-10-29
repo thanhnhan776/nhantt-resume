@@ -1,8 +1,14 @@
 import type { Project } from "../types"
 
 const professional = (
-  project: Omit<Project, "kind" | "technicalDiagramIds">,
-): Project => ({ ...project, kind: "professional", technicalDiagramIds: [] })
+  project: Omit<Project, "kind" | "technicalDiagramIds"> & {
+    technicalDiagramIds?: Project["technicalDiagramIds"]
+  },
+): Project => ({
+  ...project,
+  kind: "professional",
+  technicalDiagramIds: project.technicalDiagramIds ?? [],
+})
 
 export const projects: Project[] = [
   professional({
@@ -20,6 +26,7 @@ export const projects: Project[] = [
     retrospectiveImprovements:
       "In retrospect, a formal state machine, durable queue, explicit dead-letter/backoff policy, and complete processing history would strengthen the design.",
     achievementIds: ["wardrobe-workflow-delivery"],
+    technicalDiagramIds: ["wardrobe-processing-flow"],
     techStackIds: ["python", "django", "celery", "postgresql", "aws"],
   }),
   professional({

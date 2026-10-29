@@ -1,0 +1,6 @@
+export { ContactFooter } from "./ContactFooter"
+export { Education } from "./Education"
+export { ExperienceList } from "./ExperienceList"
+export { Hero } from "./Hero"
+export { Projects } from "./Projects"
+export { Summary } from "./Summary"
