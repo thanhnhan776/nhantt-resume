@@ -66,11 +66,11 @@ export const projects: Project[] = [
   professional({
     id: "affiliate-phase-two",
     experienceId: "netvirta",
-    title: "Affiliate conversion tracking — phase 2",
+    title: "Affiliate conversion tracking",
     problem:
       "Conversion events from multiple affiliate providers needed to be normalized and made available for internal analytics.",
     ownership:
-      "Implemented phase-two ingestion across Rakuten, Impact, CJ, Awin, and Skimlink using webhooks or five-minute Celery Beat polling, normalization, retries, weekly reconciliation, and persistence for analytics.",
+      "Implemented conversion ingestion across Rakuten, Impact, CJ, Awin, and Skimlink using webhooks or five-minute Celery Beat polling, normalization, retries, weekly reconciliation, and persistence for analytics.",
     shippedSolution:
       "Added provider conversion ingestion and normalized transaction records for internal analytics.",
     tradeOffs:

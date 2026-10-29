@@ -19,7 +19,7 @@ test("each featured case study is directly accessible", async ({ page }) => {
   for (const [slug, title] of [
     ["wardrobe-processing", "Wardrobe processing workflow"],
     ["media-signing", "Parallel media URL signing"],
-    ["affiliate-tracking", "Affiliate conversion tracking — phase 2"],
+    ["affiliate-tracking", "Affiliate conversion tracking"],
   ]) {
     await page.goto(`/work/${slug}`)
     await expect(page.getByRole("heading", { level: 1, name: title })).toBeVisible()

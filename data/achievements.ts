@@ -16,7 +16,7 @@ export const achievements: Achievement[] = [
   {
     id: "affiliate-phase-two",
     statement:
-      "Implemented phase-two conversion tracking across five affiliate providers, including webhook or scheduled polling ingestion and reconciliation.",
+      "Implemented conversion tracking across five affiliate providers, including webhook or scheduled polling ingestion and reconciliation.",
     category: "scope",
   },
   {
