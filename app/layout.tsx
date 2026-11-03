@@ -32,7 +32,7 @@ export const metadata: Metadata = {
           url: siteOrigin,
           images: [
             {
-              url: `${siteOrigin}/og/portfolio.svg`,
+              url: `${siteOrigin}/og/portfolio.png`,
               width: 1200,
               height: 630,
               alt: `Portfolio of ${profile.name}`,
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
           card: "summary_large_image",
           title,
           description,
-          images: [`${siteOrigin}/og/portfolio.svg`],
+          images: [`${siteOrigin}/og/portfolio.png`],
         },
       }
     : {}),
